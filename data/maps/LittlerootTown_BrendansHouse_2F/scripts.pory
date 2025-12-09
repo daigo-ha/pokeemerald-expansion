@@ -12,7 +12,7 @@ LittlerootTown_BrendansHouse_2F_OnTransition:
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
 	setvar VAR_LITTLEROOT_START, 1
 	call_if_unset FLAG_STARTER_BAG, MCRoom_EventScript_StarterBag
-	removeobject LOCALID_BIANCA
+	removeobject LOCALID_MC2F_BIANCA
 	setflag FLAG_BEGGINING_BIANCA
 	return
 
@@ -489,7 +489,7 @@ script MCRoom_EventScript_StarterBag{
 
 script MCRoom_EventScript_DoNotLeaveBeggining{
 	lockall
-	msgbox("Cheren: Come here {PLAYER}!\p")
+	msgbox("Cheren: Come here {PLAYER}!$")
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
 	waitmovement(0)
 	releaseall
@@ -507,59 +507,59 @@ script MCRoom_EventScript_Beggining{
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_MCStart1)
 	waitmovement(0)
-	applymovement(LOCALID_CHEREN, moves(face_left))
-	msgbox("Cheren: {PLAYER}!\pI heard from Professor Juniper.\nWe can have a Pokémon?\p")
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_left))
+	msgbox("Cheren: {PLAYER}!\pI heard from Professor Juniper.\nWe can have a Pokémon?$")
 	waitmessage
-	applymovement(LOCALID_CHEREN, moves(face_down))
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_down))
 	waitmovement(0)
-	msgbox("...\n...\p")
-	msgbox("Cheren: What's keeping Bianca?\p")
+	msgbox("...\n...$")
+	msgbox("Cheren: What's keeping Bianca?$")
 	waitmessage
 	closemessage
 	delay(90)
 	clearflag(FLAG_BEGGINING_BIANCA)
-	showobjectat(LOCALID_BIANCA, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
+	showobjectat(LOCALID_MC2F_BIANCA, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F)
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_northeast * 2, walk_right))
 	waitmovement(0)
 	opendoor(8, 1)
 	waitdooranim
 	delay(60)
-	applymovement(LOCALID_BIANCA, moves(walk_down))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_down))
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
-	applymovement(LOCALID_CHEREN, moves(face_up))
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_up))
 	waitmovement(0)
-	msgbox("Bianca: Am I a little late again?\nSo-oooo-orry!\p")
+	msgbox("Bianca: Am I a little late again?\nSo-oooo-orry!$")
 	waitmessage
-	applymovement(LOCALID_CHEREN, moves(walk_right, walk_up))
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right, walk_up))
 	waitmovement(0)
-	msgbox("Cheren: Bianca...\lI've known for ten years that you\nhave no sense of time, but...seriously...\p")
-	msgbox("Today's the day we can get a\nPokémon from Professor Juniper!\p")
+	msgbox("Cheren: Bianca...\lI've known for ten years that you\nhave no sense of time, but...seriously...$")
+	msgbox("Today's the day we can get a\nPokémon from Professor Juniper!$")
 	waitmessage
 	applymovement(OBJ_EVENT_ID_CAMERA, moves(walk_diag_southwest * 2, walk_left))
-	applymovement(LOCALID_BIANCA, moves(walk_down, walk_left * 4, face_down))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_down, walk_left * 4, face_down))
 	waitmovement(0)
-	applymovement(LOCALID_CHEREN, moves(face_left))
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_left))
 	waitmovement(0)
-	msgbox("Bianca: I know. Sorry, {PLAYER}.\nSorry, Cheren.\p")
+	msgbox("Bianca: I know. Sorry, {PLAYER}.\nSorry, Cheren.$")
 	waitmessage
-	applymovement(LOCALID_BIANCA, moves(walk_left, walk_down * 2, face_right))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_left, walk_down * 2, face_right))
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
 	waitmovement(0)
-	msgbox("Bianca: So, where are the Pokémon?\p")
-	msgbox("They were delivered to {PLAYER}'s\nhouse, so {PLAYER} gets first pick.\p")
-	msgbox("Cheren: Naturally.\p")
+	msgbox("Bianca: So, where are the Pokémon?$")
+	msgbox("They were delivered to {PLAYER}'s\nhouse, so {PLAYER} gets first pick.$")
+	msgbox("Cheren: Naturally.$")
 	waitmessage
-	applymovement(LOCALID_CHEREN, moves(walk_down, walk_left, face_down))
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down, walk_left, face_down))
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_down))
-	applymovement(LOCALID_BIANCA, moves(face_down))
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_down))
 	waitmovement(0)
-	msgbox("The Pokémon are waiting for us\ninside that bag.\p")
-	msgbox("OK, {PLAYER}, you go first and take\na peek at the bag.\p")
-	msgbox("I want to meet the Pokémon right now!\p")
+	msgbox("The Pokémon are waiting for us\ninside that bag.$")
+	msgbox("OK, {PLAYER}, you go first and take\na peek at the bag.$")
+	msgbox("I want to meet the Pokémon right now!$")
 	waitmessage
 	
 	special(RemoveCameraObject)
@@ -574,7 +574,7 @@ movement Movement_MCStart1{
 
 script MCRoom_EventScript_ChooseNow{
 	lockall
-	msgbox("Take a look.\nWe're waiting.\p")
+	msgbox("Take a look.\nWe're waiting.$")
 	getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
 	if (var(VAR_TEMP_0) == 4){
 		applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down))
@@ -592,29 +592,29 @@ script MCRoom_EventScript_ChooseNow{
 script MCRoom_EventScript_BattleBianca{
 	lockall
 	// After choosing starter
-	applymovement(LOCALID_BIANCA, moves(walk_down, face_right))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_down, face_right))
 	waitmovement(0)
-	msgbox("Bianca: OK, I'll take this Pokémon!\nCheren, that one's yours!\p")
-	applymovement(LOCALID_CHEREN, moves(walk_down, face_left))
+	msgbox("Bianca: OK, I'll take this Pokémon!\nCheren, that one's yours!$")
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down, face_left))
 	waitmovement(0)
-	msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?\p")
-	msgbox("Oh, never mind. I wanted ...\nfrom the start, anyway.\p")
+	msgbox("Cheren: Hey, how come you get to pick\nout my Pokémon?$")
+	msgbox("Oh, never mind. I wanted ...\nfrom the start, anyway.$")
 	waitmessage
 	fadescreen(FADE_TO_BLACK)
 	removeobject(15)
-	applymovement(LOCALID_CHEREN, moves(walk_fast_up * 4, face_down))
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_fast_up * 4, face_down))
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_fast_up * 2, face_right))
-	applymovement(LOCALID_BIANCA, moves(walk_fast_right * 3, walk_fast_up * 2, face_left))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_fast_right * 3, walk_fast_up * 2, face_left))
 	waitmovement(0)
 	fadescreen(FADE_FROM_BLACK)
-	msgbox("Bianca: Everyone has chosen a Pokémon!\n...So that's that!\p")
-	msgbox("Hey, I know!\nLet's have a Pokémon battle!\p")
-	msgbox("Cheren: Honestly, Bianca...\p")
-	msgbox("Even though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\linside a house.\p")
-	msgbox("Don't be a worrywart!\nThese little ones are weak, like you said.\p")
-	msgbox("We have to let them battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!\p")
+	msgbox("Bianca: Everyone has chosen a Pokémon!\n...So that's that!$")
+	msgbox("Hey, I know!\nLet's have a Pokémon battle!$")
+	msgbox("Cheren: Honestly, Bianca...$")
+	msgbox("Even though they're still weak Pokémon,\nyou shouldn't have Pokémon battles\linside a house.$")
+	msgbox("Don't be a worrywart!\nThese little ones are weak, like you said.$")
+	msgbox("We have to let them battle so they'll get\nstronger. It's settled, {PLAYER}!\lGet ready for a Pokémon Battle!$")
 	waitmessage
-	applymovement(LOCALID_BIANCA, Common_Movement_Delay48)
+	applymovement(LOCALID_MC2F_BIANCA, Common_Movement_Delay48)
 	waitmovement(0)
 	// Battle with Bianca
 	switch (var(VAR_STARTER_MON)){
@@ -630,65 +630,65 @@ script MCRoom_EventScript_BattleBianca{
 }
 script MCRoom_EventScript_BattleCheren{
 	lockall
-	msgbox("Bianca: Wow...\p")
-	msgbox("{PLAYER}, you're gonna be\nan awesome Trainer someday, I can tell!\p")
-	msgbox("No doubt!\p")
+	msgbox("Bianca: Wow...$")
+	msgbox("{PLAYER}, you're gonna be\nan awesome Trainer someday, I can tell!$")
+	msgbox("No doubt!$")
 	waitmessage
-	msgbox("Cheren: Uh...\n...\p")
-	msgbox("Bianca: Would you take a look around?\p")
+	msgbox("Cheren: Uh...\n...$")
+	msgbox("Bianca: Would you take a look around?$")
 	waitmessage
-	applymovement(LOCALID_BIANCA, moves(face_right))
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_right))
 	waitmovement(0)
 	delay(60)
-	applymovement(LOCALID_BIANCA, moves(face_up))
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_up))
 	waitmovement(0)
 	delay(60)
-	applymovement(LOCALID_BIANCA, moves(face_down))
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_down))
 	waitmovement(0)
 	delay(60)
-	msgbox("Bianca: Wh-whoa!\nWhat happened?!\p")
-	applymovement(LOCALID_BIANCA, moves(face_left))
+	msgbox("Bianca: Wh-whoa!\nWhat happened?!$")
+	applymovement(LOCALID_MC2F_BIANCA, moves(face_left))
 	waitmovement(0)
-	msgbox("Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!\p")
-	msgbox("I'm so glad that I get to have a Pokémon!\p")
-	msgbox("...Oh.\nUm, sorry about your room, {PLAYER}.\p")
+	msgbox("Wow! Pokémon are amaaaaazing!!\nSo little, but so strong!$")
+	msgbox("I'm so glad that I get to have a Pokémon!$")
+	msgbox("...Oh.\nUm, sorry about your room, {PLAYER}.$")
 	waitmessage
-	applymovement(LOCALID_CHEREN, moves(walk_down * 2, face_right))
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_down * 2, face_right))
 	waitmovement(0)
-	msgbox("Cheren: You...are completely hopeless.\p")
-	msgbox("Here!\nI'll restore your Pokémon for you.\p")
+	msgbox("Cheren: You...are completely hopeless.$")
+	msgbox("Here!\nI'll restore your Pokémon for you.$")
 	// Heals Bianca's Pokémon
 	playfanfare(MUS_HEAL)
 	waitfanfare
-	applymovement(LOCALID_CHEREN, moves(face_left))
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_left))
 	waitmovement(0)
-	msgbox("{PLAYER}'s Pokémon needs\nto be fixed up, too.\p")
+	msgbox("{PLAYER}'s Pokémon needs\nto be fixed up, too.$")
 	// Heals {PLAYER}'s Pokémon
 	playfanfare(MUS_HEAL)
 	waitfanfare
 	special(HealPlayerParty)
 	// Exclamation sign in Bianca
-	applymovement(LOCALID_BIANCA, Common_Movement_ExclamationMark)
+	applymovement(LOCALID_MC2F_BIANCA, Common_Movement_ExclamationMark)
 	waitmovement(0)
-	applymovement(LOCALID_BIANCA, moves(walk_up * 2, walk_left, face_down))
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_up * 2, walk_left, face_down))
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_up))
-	applymovement(LOCALID_CHEREN, moves(face_up))
+	applymovement(LOCALID_MC2F_CHEREN, moves(face_up))
 	waitmovement(0)
-	msgbox("Bianca: Hey, Cheren!\nHow about you battle, too?\p")
-	msgbox("With all you know, I'm sure you can\nbattle without turning the room into\la disaster area like I did!\p")
-	msgbox("Cheren: I believe you're right!\p")
-	msgbox("It'll be no problem for me to keep\nthe room from getting any mesier.\p")
-	msgbox("Besides, it's not fair if you two are the\nonly ones who get to have fun battling!\p")
+	msgbox("Bianca: Hey, Cheren!\nHow about you battle, too?$")
+	msgbox("With all you know, I'm sure you can\nbattle without turning the room into\la disaster area like I did!$")
+	msgbox("Cheren: I believe you're right!$")
+	msgbox("It'll be no problem for me to keep\nthe room from getting any mesier.$")
+	msgbox("Besides, it's not fair if you two are the\nonly ones who get to have fun battling!$")
 	waitmessage
-	applymovement(LOCALID_CHEREN, moves(walk_right, face_left))
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right, face_left))
 	waitmovement(0)
 	applymovement(OBJ_EVENT_ID_PLAYER, moves(face_right))
 	waitmovement(0)
-	msgbox("It's decided. You'll be my opponent...\nin our first Pokémon battle!\p")
-	msgbox("Let's see what you can do, ...!\p")
+	msgbox("It's decided. You'll be my opponent...\nin our first Pokémon battle!$")
+	msgbox("Let's see what you can do, ...!$")
 	waitmessage
-	applymovement(LOCALID_CHEREN, Common_Movement_Delay48)
+	applymovement(LOCALID_MC2F_CHEREN, Common_Movement_Delay48)
 	waitmovement(0)
 	// Battle with cheren
 	switch (var(VAR_STARTER_MON)){
@@ -701,16 +701,16 @@ script MCRoom_EventScript_BattleCheren{
 }
 script MCRoom_EventScript_PostBattles{
 	lockall
-	msgbox("Cheren: I made a strange blunder\nin my first battle, but\lthis feeling I have...\l...I'm finally a Trainer.\p")
-	msgbox("But first, we'd better go apologize to\nyour mother about this messed-up room.\p")
+	msgbox("Cheren: I made a strange blunder\nin my first battle, but\lthis feeling I have...\l...I'm finally a Trainer.$")
+	msgbox("But first, we'd better go apologize to\nyour mother about this messed-up room.$")
 	waitmessage
-	applymovement(LOCALID_CHEREN, moves(walk_right * 2, walk_up * 3))
-	msgbox("Bianca: Oh!\nI'd better come, too!\p")
+	applymovement(LOCALID_MC2F_CHEREN, moves(walk_right * 2, walk_up * 3))
+	msgbox("Bianca: Oh!\nI'd better come, too!$")
 	waitmessage
-	removeobject(LOCALID_CHEREN)
-	applymovement(LOCALID_BIANCA, moves(walk_right * 3, walk_up))
+	removeobject(LOCALID_MC2F_CHEREN)
+	applymovement(LOCALID_MC2F_BIANCA, moves(walk_right * 3, walk_up))
 	waitmovement(0)
-	removeobject(LOCALID_BIANCA)
+	removeobject(LOCALID_MC2F_BIANCA)
 
 	setflag(FLAG_BEGGINING_BIANCA)
 	setflag(FLAG_BEGGINING_CHEREN)
@@ -735,7 +735,7 @@ script MCRoom_EventScript_StartBiancaBattleOshawott{
 }
 
 text MCRoom_Text_BiancaDefeated{
-	"."
+	"The Pokémon on both sides did their best!"
 }
 
 script MCRoom_EventScript_StartCherenBattleSnivy{
@@ -755,5 +755,5 @@ script MCRoom_EventScript_StartCherenBattleOshawott{
 }
 
 text MCRoom_Text_CherenDefeated{
-	"."
+	"Ah! So that's a Pokémon battle!"
 }
