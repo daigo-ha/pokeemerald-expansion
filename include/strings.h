@@ -2431,4 +2431,8 @@ extern const u8 gText_CannotSendMonToBoxHM[];
 extern const u8 gText_CannotSendMonToBoxActive[];
 extern const u8 gText_CannotSendMonToBoxPartner[];
 
+extern const u8 gText_StarterSnivy[];
+extern const u8 gText_StarterTepig[];
+extern const u8 gText_StarterOshawott[];
+
 #endif // GUARD_STRINGS_H
